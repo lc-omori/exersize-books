@@ -9,26 +9,18 @@ const DIST = path.resolve(__dirname, 'dist');
 
 module.exports = {
   entry: {
-    app: path.join(SRC, 'app.js'),
+    app: null,
   },
   output: {
     path: DIST,
-    filename: '[name].js',
+    filename: null,
   },
   module: {
     rules: [
       {
-        test: /\.(css|scss)$/,
-        use: ['vue-style-loader', 'css-loader',  'sass-loader'],
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-      },
-      {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        use: [],
       },
     ],
   },
@@ -36,7 +28,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     },
-    extensions: ['.js', '.vue'],
+    extensions: [],
   },
   plugins: [
     new VueLoaderPlugin(),
